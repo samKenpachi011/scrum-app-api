@@ -64,6 +64,20 @@ class Project(models.Model):
     
 
 class Task(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): Task model that has the following attributes:
+        name (_type_): Name of the task
+        description (_type_): Description of the task
+        created_at (_type_): Date and time the task was created.
+        due_date (_type_): Date and time the task is due.
+        project_id (_type_): Project that the task is assigned to.
+        task_owner (_type_): User who is the task owner.
+        estimated_time (_type_): Estimated time to complete the task.
+        actual_time (_type_): Actual time to complete the task.
+        status (_type_): Status of the task. Can be one of the following: to-do, in-progress, done, review, archived.
+    """
     name = models.CharField(max_length=100)
     description = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -75,6 +89,19 @@ class Task(models.Model):
     status = models.CharField(max_length=100, default='to-do')
     
 class Team(models.Model):
+    """
+    
+
+    Args:
+        models (_type_): Team model that has the following attributes:
+        name (_type_): Name of the team
+        description (text): Description of the team
+        created_at (datetime): Date and time the team was created.
+        team_lead (User model): User who is the team lead of the team.
+        members (list of users): Users who are on the team.
+        project (project_id): Project that the team is assigned to.       
+        
+    """
     name = models.CharField(max_length=100)
     description = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
